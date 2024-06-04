@@ -19,7 +19,7 @@ nav {
 h1 {
     display: flex;
     align-items: center;
-    color: rgb(27, 3, 247);
+    color: rgb(0, 0, 255);
     flex: 1;
     margin: 0;
 }
@@ -32,7 +32,7 @@ h1 {
 }
 a {
     text-decoration: none;
-    color: #fc0000;
+    color: #fffbfb;
 }
 
 /* main container area beneath menu */
