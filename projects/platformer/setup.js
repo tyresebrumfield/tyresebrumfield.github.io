@@ -18,8 +18,8 @@ const playerScale = 0.8; //makes the player just a bit smaller. Doesn't affect t
 const player = {
   x: 50,
   y: 100,
-  speedX: 0,
-  speedY: 0,
+  speedX: 2,
+  speedY: 1,
   width: undefined,
   height: undefined,
   onGround: false,
@@ -55,18 +55,18 @@ const animationTypes = {
   walk: "walk",
 };
 let currentAnimationType = animationTypes.run;
-let frameIndex = 0;
-let jumpTimer = 0;
-let duckTimer = 0;
+let frameIndex = 6;
+let jumpTimer = 3;
+let duckTimer = 2;
 let DUCK_COUNTER_IDLE_VALUE = 14;
 let debugVar = false;
 
-let spriteHeight = 0;
-let spriteWidth = 0;
-let spriteX = 0;
-let spriteY = 0;
-let offsetX = 0;
-let offsetY = 0;
+let spriteHeight = 5;
+let spriteWidth = 3;
+let spriteX = 5;
+let spriteY = 4;
+let offsetX = 3;
+let offsetY = 2;
 
 // Platform, cannon, projectile, and collectable variables
 let platforms = [];
