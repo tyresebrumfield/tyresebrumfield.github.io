@@ -44,7 +44,7 @@
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
-		
+			var boardHeight = board.height();	// the maximum X-Coordinate of the screen
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
 			
@@ -70,10 +70,10 @@
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
 			var points = 0;
-			var speed = 10; 
-			var positionY; 
-			var speedY;
-			var boardHeight = jQuery(window).height();
+			var speedX = 2; 
+			var positionY = 0; 
+			var speedY = 2;
+
 			var randNum = Math.random() * 100;
 			var colorStr = "rgb(50, 25, 250)";
 			var randomNumberBetween0and10 = Math.random() * 10; 
@@ -86,16 +86,25 @@
 			*/
 			// We want to increase the value of positionX by 10 
 			function update() {
-				positionX = positionX + speed 
+				positionX = positionX + speedX
+				positionY = positionY + speedY
 				moveBoxTo(positionX, positionY);
 			
 			if (positionX > boardWidth){
-				speed = -speed;
+				speedX = -speedX;
 			}; 
 
-			if (positionX < -50){
-				speed = -speed; 
+			if (positionX <= -50){
+				speedX = -speedX; 
 			}
+			if (positionY > boardHeight){
+				speedY = -speedY;
+			}; 
+
+			if (positionY <= 0){
+				speedY = -speedY; 
+			}
+
 			}	
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -107,13 +116,17 @@
 				points = points + 1;
 				changeBoxText(points)
 				
-				if (speed > 0) {
-					speed = speed + 3;
-				} else if (speed <= 0){
-					speed = speed - 3;
+				if (speedX > 0) {
+					speedX = speedX + 3;
+				} else if (speedX <= 0){
+					speedX = speedX - 3;
 				}
 				
-
+				if (speedY > 0) {
+					speedY = speedY + 3;
+				} else if (speedY <= 0){
+					speedY = speedY - 3;
+				}
 
 			};
 		})();
